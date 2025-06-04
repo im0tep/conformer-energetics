@@ -1,0 +1,17 @@
+#include "oplsaa.ff/forcefield.itp"
+#include "ligand.itp"
+
+; Ligand position restraints
+#ifdef POSRES
+#include "posre.itp"
+#endif
+
+#include "oplsaa.ff/tip3p.itp"
+
+[ system ]
+Propane-1,2-diol solvated in water
+
+[ molecules ]
+UNL  1
+SOL  256
+
