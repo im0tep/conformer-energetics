@@ -1,0 +1,33 @@
+memory 180 gb
+import psi4
+
+psi4_io.set_default_path("/tmp")
+
+molecule sample {
+0 1
+C   -0.756   0.561   1.352
+C    0.696   0.758   0.905
+H    1.114   1.655   1.372
+H    0.769   0.845  -0.183
+O    1.483  -0.353   1.341
+C   -1.393  -0.675   0.732
+H   -1.345   1.446   1.092
+O   -0.781   0.414   2.774
+H   -1.389  -0.616  -0.361
+H   -2.430  -0.775   1.072
+H   -0.874  -1.589   1.038
+H   -0.069  -0.226   2.974
+H    2.393  -0.187   1.039
+units angstrom
+symmetry c1
+noreorient
+nocom
+}
+
+set {
+ wcombine false
+ }
+
+props = ['DIPOLE', 'QUADRUPOLE', 'WIBERG_LOWDIN_INDICES', 'MAYER_INDICES']
+gradient('wB97M-D3BJ/def2-TZVPPD', properties=props)
+clean()
